@@ -1,4 +1,4 @@
-#version 330 core
+#version 400 core
 
 out vec4 FragColor;
 in vec3 frag_color;
@@ -54,13 +54,13 @@ float fade(float t) {
 
 float noise(float x, float y, float z) {
 
-    int x1 = int(x) & 255,
-        y1 = int(y) & 255,
-        z1 = int(z) & 255;
+    int x1 = int(floor(x)) & 255,
+        y1 = int(floor(y)) & 255,
+        z1 = int(floor(z)) & 255;
 
-    x -= float(int(x));
-    y -= float(int(y));
-    z -= float(int(z));
+    x -= floor(x);
+    y -= floor(y);
+    z -= floor(z);
 
     float x2 = fade(x),
           y2 = fade(y),
